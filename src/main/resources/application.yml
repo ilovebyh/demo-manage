@@ -4,7 +4,7 @@ spring:
     url: jdbc:mysql://localhost:3306/sp_mb_vue?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     username: root
     password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
   # thymeleaf模板引擎配置，设置编码，false取消缓存
   thymeleaf:
     encoding: UTF-8
