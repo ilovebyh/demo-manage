@@ -1,4 +1,4 @@
-package com.byh.demo;
+package com.byh;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
