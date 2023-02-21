@@ -27,14 +27,14 @@ public class UserController {
     public void add(User user){
         userService.add(user);
     }
+
     @RequestMapping("/update")
     public void update(User user){
-
         userService.update(user);
     }
+
     @RequestMapping("/del")
     public void del(String id){
-
         userService.del(id);
     }
 
