@@ -26,6 +26,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User queryEntityById(String id) {
+        return userMapper.queryEntityById(id);
+    }
+
+    @Override
     public void add(User user) {
         user.setId(UUIDGenerator.getUUID());
         userMapper.add(user);

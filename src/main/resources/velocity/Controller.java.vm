@@ -31,7 +31,7 @@ public class ${className}Controller {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("${moduleName}:${className}:list")
+##    @RequiresPermissions("${moduleName}:${className}:list")
     public PageInfo<${className}> list(@RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "1")Integer curPage, @RequestParam(defaultValue = "2")Integer pageSize){
         //查询列表数据
         PageInfo<${className}> page =  ${className}Service.listByName(name,curPage,pageSize);
@@ -43,10 +43,9 @@ public class ${className}Controller {
      * 信息
      */
     @RequestMapping("/info/{${pk.attrname}}")
-    @RequiresPermissions("${moduleName}:${className}:info")
-    public ResultInfo info(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
-            ${className}Entity ${classname} = ${classname}Service.queryObject(${pk.attrname});
-
+##    @RequiresPermissions("${moduleName}:${className}:info")
+    public ResultInfo getEntityById(String id){
+        ${className}Entity ${classname} = ${classname}Service.queryEntityById(id);
         return ResultInfo.ok().put("${classname}", ${classname});
     }
 
@@ -54,10 +53,9 @@ public class ${className}Controller {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("${moduleName}:${className}:save")
-    public ResultInfo save(@RequestBody ${className}Entity ${classname}){
-            ${classname}Service.save(${classname});
-
+##    @RequiresPermissions("${moduleName}:${className}:save")
+    public ResultInfo save(${className}Entity ${classname}){
+        ${classname}Service.add(${classname});
         return ResultInfo.ok();
     }
 
@@ -65,10 +63,9 @@ public class ${className}Controller {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("${moduleName}:${className}:update")
-    public ResultInfo update(@RequestBody ${className}Entity ${classname}){
-            ${classname}Service.update(${classname});
-
+##    @RequiresPermissions("${moduleName}:${className}:update")
+    public ResultInfo update(${className}Entity ${classname}){
+        ${classname}Service.update(${classname});
         return ResultInfo.ok();
     }
 
@@ -76,10 +73,9 @@ public class ${className}Controller {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("${moduleName}:${className}:delete")
-    public ResultInfo delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
-            ${classname}Service.deleteBatch(${pk.attrname}s);
-
+##    @RequiresPermissions("${moduleName}:${className}:delete")
+    public ResultInfo delete(String id){
+        ${classname}Service.del(id);
         return ResultInfo.ok();
     }
 

@@ -11,6 +11,8 @@ public interface UserMapper {
 
     List<User> listByName(String name);
 
+    User queryEntityById(String id);
+
     void add(User user);
 
     void update(User user);
