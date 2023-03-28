@@ -24,6 +24,11 @@ public class UserController {
     }
 
     @RequestMapping("/add")
+    public void add(String id){
+        userService.queryEntityById(id);
+    }
+
+    @RequestMapping("/add")
     public void add(User user){
         userService.add(user);
     }

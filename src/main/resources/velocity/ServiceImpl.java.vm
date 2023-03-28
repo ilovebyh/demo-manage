@@ -1,0 +1,49 @@
+package ${package}.service.impl;
+
+import ${package}.common.UUIDGenerator;
+import ${package}.entity.${className};
+import ${package}.mapper.${className}Mapper;
+import ${package}.service.${className}Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ${className}ServiceImpl implements ${className}Service {
+
+    @Autowired
+    private ${className}Mapper ${className}Mapper;
+
+    @Override
+    public PageInfo<${className}> listByName(String name, Integer curPage, Integer pageSize) {
+        PageHelper.startPage(curPage,pageSize);
+        List<${className}> ${className}List =  ${className}Mapper.listByName(name);
+        PageInfo<${className}> page = new PageInfo<>(${className}List);
+        return page;
+    }
+
+    @Override
+    public ${className} queryEntityById(String id) {
+        return ${className}Mapper.queryEntityById(id);
+    }
+
+    @Override
+    public void add(${className} ${className}) {
+        ${className}.setId(UUIDGenerator.getUUID());
+        ${className}Mapper.add(${className});
+    }
+
+    @Override
+    public void update(${className} ${className}) {
+        ${className}Mapper.update(${className});
+    }
+
+    @Override
+    public void del(String id) {
+        ${className}Mapper.del(id);
+    }
+
+}

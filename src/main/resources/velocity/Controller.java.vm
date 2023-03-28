@@ -1,16 +1,13 @@
 package ${package}.controller;
 
-import java.util.List;
-import java.util.Map;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
-import ${package}.entity.${className}Entity;
+import ${package}.entity.${className};
 import ${package}.service.${className}Service;
+import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 
 
@@ -21,6 +18,7 @@ import ${package}.service.${className}Service;
  *
  * @date ${datetime}
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/${className}")
 public class ${className}Controller {
@@ -54,7 +52,7 @@ public class ${className}Controller {
      */
     @RequestMapping("/save")
 ##    @RequiresPermissions("${moduleName}:${className}:save")
-    public ResultInfo save(${className}Entity ${classname}){
+    public ResultInfo save(${className} ${classname}){
         ${classname}Service.add(${classname});
         return ResultInfo.ok();
     }
@@ -64,7 +62,7 @@ public class ${className}Controller {
      */
     @RequestMapping("/update")
 ##    @RequiresPermissions("${moduleName}:${className}:update")
-    public ResultInfo update(${className}Entity ${classname}){
+    public ResultInfo update(${className} ${classname}){
         ${classname}Service.update(${classname});
         return ResultInfo.ok();
     }

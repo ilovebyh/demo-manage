@@ -104,7 +104,7 @@ public class CodeGenerator {
                 }
                 Writer writer = new FileWriter(file);
                 //拿到模板，设置编码
-                velocityEngine.mergeTemplate("template/"+templateName,"utf-8",context,writer);
+                velocityEngine.mergeTemplate("velocity/"+templateName,"utf-8",context,writer);
                 writer.close();
 
             }

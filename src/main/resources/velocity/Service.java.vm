@@ -1,0 +1,18 @@
+package ${package}.service;
+
+import ${package}.entity.${className};
+import com.github.pagehelper.PageInfo;
+
+public interface ${className}Service {
+
+    PageInfo<${className}> listByName(String name, Integer curPage, Integer pageSize);
+
+    User queryEntityById(String id);
+
+    void add(${className} ${className});
+
+    void update(${className} ${className});
+
+    void del(String id);
+
+}
